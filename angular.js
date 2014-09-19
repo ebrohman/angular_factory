@@ -19,6 +19,7 @@ boxes.controller('CatalogCtrl', function($scope, $http, Cart) {
     e.preventDefault();
     $scope.cart.push(box);
   };
+
 });
 
 boxes.controller('CartCtrl', function ($scope, Cart) {
@@ -36,5 +37,9 @@ boxes.controller('CartCtrl', function ($scope, Cart) {
     $scope.subtotal = subtotal;
     $scope.shipping = subtotal > 20 ? 0 : baseShipping;
   }, true);
+
+  $scope.removeFromCart = function($index){
+    $scope.cart.splice($index, 1);
+  };
 
 });
